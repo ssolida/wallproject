@@ -1,0 +1,57 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="ui form segment">
+  <div class="two fields">
+    <div class="field">
+      <label>Title</label>
+      <input placeholder="my super ad title" type="text" ng-model="newAd.title">
+    </div>
+  </div>
+   <div class="field">
+    <label>Post Code</label>
+    <input placeholder="postcode" type="text" ng-model="newAd.cp">
+  </div>
+  <div class="field">
+    <label>Description</label>
+    <textarea ng-model="newAd.description"></textarea>
+  </div>
+  <div class="inline field">
+    <div class="ui checkbox">
+      <input type="checkbox">
+      <label>I agree to the terms and conditions</label>
+    </div>
+  </div>
+  <div class="ui submit button" ng-click="addAd()">Submit</div>
+</div>
+
+
+<div class="ui four cards">
+  <div ng-repeat="ad in ads" class="ui card">
+    <div class="image">
+      <img src="http://img1.wikia.nocookie.net/__cb20141028171337/pandorahearts/images/a/ad/Not_available.jpg">
+    </div>
+    <div class="content">
+      <a class="header">{{ad.title}}</a>
+      <div class="meta">
+        <span class="date">{{ad.date}}</span>
+      </div>
+      <div class="meta">
+        <span>from {{ad.author.name}}</span>
+      </div>
+      <div class="description">
+        {{ad.description}}
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="left floated like">
+      <i class="world icon"></i>
+      {{ad.cp}}
+    </span>
+    <span class="right floated star">
+      <a ng-click="deleteAd(ad)"><i class="delete icon"></i>
+      delete
+      </a>
+    </span>
+    </div>
+  </div>
+</div>
